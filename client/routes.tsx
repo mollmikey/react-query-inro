@@ -5,7 +5,7 @@ import PokemonList from './components/PokemonList.tsx'
 import PokemonDetail from './components/PokemonDetail.tsx'
 
 export const routes = createRoutesFromElements(
-  <Route element={<AppLayout />}>
+  <Route path="/" element={<AppLayout />}>
     <Route index element={<PokemonList />} />
     <Route path="pokemon/:name" element={<PokemonDetail />} />
   </Route>
