@@ -8,16 +8,22 @@ export default function PokemonList() {
     queryFn: () => fetchPokemonGeneration(1),
   })
 
-  console.log(data)
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
+
+  if (isError) {
+    return <p>Error</p>
+  }
 
   return (
     <>
       <h2>Pokémon in {data?.main_region.name}:</h2>
-      <ul>
+      <ol>
         {data?.pokemon_species.map((p) => (
           <li key={p.url}>{p.name}</li>
         ))}
-      </ul>
+      </ol>
     </>
   )
 }
