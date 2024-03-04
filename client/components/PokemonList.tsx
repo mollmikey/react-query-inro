@@ -1,19 +1,20 @@
 import { PokemonGeneration } from '../../models/pokemon.ts'
 import { useQuery } from '@tanstack/react-query'
 import { fetchPokemonGeneration } from '../apis/pokemon.ts'
+import LoadingSpinner from './LoadingSpinner.tsx'
 
 export default function PokemonList() {
-  const { data, isError, isLoading } = useQuery({
+  const { data, isError, error, isLoading } = useQuery({
     queryKey: ['name'],
     queryFn: () => fetchPokemonGeneration(1),
   })
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <LoadingSpinner />
   }
 
   if (isError) {
-    return <p>Error</p>
+    return <p>Failed to retrieve Pokemon: {error.message}</p>
   }
 
   return (
