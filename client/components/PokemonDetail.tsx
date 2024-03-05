@@ -52,6 +52,11 @@ export default function PokemonDetail() {
           {pokemon.height}
         </section>
         <section>
+          <h2>Species: </h2>
+          {pokemon.species.name}
+          {pokemon.species.url}
+        </section>
+        <section>
           <h2>Moves: </h2>
           {pokemon.moves.map(({ move }) => (
             <p key={move.name}>{move.name}</p>

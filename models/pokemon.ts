@@ -30,6 +30,13 @@ export interface Pokemon {
   moves: Array<Move>
   types: Array<TypeInfo>
   weight: number
+  height: number
+  species: Species
+}
+
+export interface Species {
+  name: string
+  url: string
 }
 
 interface Ability {
