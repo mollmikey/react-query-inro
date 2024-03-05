@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { fetchPokemonByName } from '../apis/pokemon.ts'
 import { useQuery } from '@tanstack/react-query'
 import LoadingSpinner from './LoadingSpinner.tsx'
@@ -43,19 +43,23 @@ export default function PokemonDetail() {
             <p key={slot}>{ability.name}</p>
           ))}
         </section>
+
         <section>
           <h2>Weight: </h2>
           {pokemon.weight}
         </section>
+
         <section>
           <h2>Height: </h2>
           {pokemon.height}
         </section>
+
         <section>
           <h2>Species: </h2>
-          {pokemon.species.name}
-          {pokemon.species.url}
+          <p>{pokemon.species.name}</p>
+          <a href={pokemon.species.url}>Species</a>
         </section>
+
         <section>
           <h2>Moves: </h2>
           {pokemon.moves.map(({ move }) => (
