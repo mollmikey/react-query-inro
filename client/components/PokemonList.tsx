@@ -1,7 +1,8 @@
-import { PokemonGeneration } from '../../models/pokemon.ts'
 import { useQuery } from '@tanstack/react-query'
 import { fetchPokemonGeneration } from '../apis/pokemon.ts'
+
 import LoadingSpinner from './LoadingSpinner.tsx'
+import { Link } from 'react-router-dom'
 
 export default function PokemonList() {
   const { data, isError, error, isLoading } = useQuery({
@@ -22,7 +23,9 @@ export default function PokemonList() {
       <h2>Pokémon in {data?.main_region.name}:</h2>
       <ol>
         {data?.pokemon_species.map((p) => (
-          <li key={p.url}>{p.name}</li>
+          <li key={p.url}>
+            <Link to={`/pokemon/${p.name}`}>{p.name}</Link>
+          </li>
         ))}
       </ol>
     </>
