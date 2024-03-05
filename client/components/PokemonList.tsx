@@ -4,7 +4,7 @@ import { fetchPokemonGeneration } from '../apis/pokemon.ts'
 import LoadingSpinner from './LoadingSpinner.tsx'
 import { Link } from 'react-router-dom'
 
-export default function PokemonList() {
+function PokemonList() {
   const { data, isError, error, isLoading } = useQuery({
     queryKey: ['name'],
     queryFn: () => fetchPokemonGeneration(1),
@@ -40,3 +40,5 @@ export default function PokemonList() {
 // { url: 'https://pokeapi.co/api/v2/pokemon/bulbasaur', name: 'Bulbasaur' },
 // ],
 // } as PokemonGeneration
+
+export default PokemonList
