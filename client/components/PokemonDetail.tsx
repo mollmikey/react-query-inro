@@ -4,6 +4,8 @@ import { useQuery } from '@tanstack/react-query'
 import LoadingSpinner from './LoadingSpinner.tsx'
 import { Pokemon } from '../../models/pokemon.ts'
 
+console.log(PokemonDetail)
+
 export default function PokemonDetail() {
   const { name } = useParams()
   const {
@@ -40,6 +42,10 @@ export default function PokemonDetail() {
           {pokemon.abilities.map(({ ability, slot }) => (
             <p key={slot}>{ability.name}</p>
           ))}
+        </section>
+        <section>
+          <h2>Weight: </h2>
+          {pokemon.weight}
         </section>
         <section>
           <h2>Moves: </h2>

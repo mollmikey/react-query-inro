@@ -29,6 +29,7 @@ export interface Pokemon {
   abilities: Array<Ability>
   moves: Array<Move>
   types: Array<TypeInfo>
+  weight: number
 }
 
 interface Ability {
